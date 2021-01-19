@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kadince To-Do List</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="kadince-favicon.ico">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Stylesheet -->
+<script src="https://kit.fontawesome.com/5924683564.js" crossorigin="anonymous"></script>
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Nav Bar -->
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-template">
+    <div class="d-flex flex-row order-2 order-lg-3">
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item"><a class="nav-link px-2" href="https://www.linkedin.com/company/kadince/" target="_blank"><span class="fa fa-linkedin"></span></a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="https://twitter.com/kadinceco" target="_blank"><span class="fa fa-twitter-square"></span></a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="https://www.youtube.com/channel/UCh5vMXOTTuJZI1QMcHXNHiQ" target="_blank"><span class="fa fa-youtube"></span></a></li>
+      </ul>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="https://www.kadince.com/">Home</a></li>
+
+      </ul>
+  </nav>
+
+  <!-- Top Area -->
+  <div class="box" id="heading">
+    <img class="logo" src="images/kadince.png" alt="kadince-logo"></img>
+    <h1>kadince</h1>
+    <p class="tag">Making the world better, one task at a time.</p>
+    <!-- Title -->
+    <div class="box">
+      <h2> <%= listTitle %> </h2>
+    </div>
+    <!-- End of top -->
+    <div class="box">
+      <!-- Item function -->
+      <%  newListItems.forEach(function(item){ %>
+      <!-- Form for pending items -->
+      <form action="/delete" method="post">
+        <!-- Items -->
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+          <p><%=item.name%></p>
+        </div>
+        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+      </form>
+      <%  }) %>
+      <!-- End pending items -->
+      <!-- Form to add items -->
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="Add new task..." autocomplete="off">
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+    </div>
+</body>
+<footer>
+  Made by Sierra Scott 2021
+</footer>
+
+</html>

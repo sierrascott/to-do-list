@@ -1,0 +1,20 @@
+{
+  "name": "kadincetodolist",
+  "version": "1.0.0",
+  "description": "Kadince interview test project - to-do list.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sierra Scott",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.12",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}

@@ -1,0 +1,169 @@
+html {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(65deg, #9EB441 50%, #c68e99 50%);
+  min-height: 1000px;
+  font-family: 'helvetica neue';
+}
+
+h1, h2 {
+  color: #585657;
+  font-family: 'lato',sans-serif;
+  padding: 5%;
+  margin: 0px;
+}
+
+h2 {
+  color: #fff;
+  background-color: #CBE068;
+
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #323232;
+}
+
+.navbar-expand-lg {
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.navbar {
+  position: sticky;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+}
+
+.nav-up {
+  top: -60px;
+}
+
+.nav-link {
+  color: #9EB441;
+  font-family: "Montserrat",sans-serif;
+}
+
+.nav-link:hover {
+  color: #CBE068;
+}
+
+.fa {
+  color: #9B9B9B;
+}
+
+.fa:hover {
+  color: #fff;
+}
+
+.logo {
+  width: 40%;
+}
+
+.tag {
+  color: #c68e99;
+  text-align: center;
+  font-family: 'lato', sans-serif;
+  padding-bottom: 15%;
+
+}
+
+.box {
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #fdf1f1;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #CBE068;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+body {
+  background-color: transparent;
+}
+
+form.item {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button {
+  min-height: 15%;
+  width: 15%;
+  border-radius: 50%;
+  background-color: #fff;
+  border-color: #CBE068;
+  color: #CBE068;
+  font-size: 2rem;
+  padding-bottom: 6px;
+  border-width: 1px;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #9EB441;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  text-align: center;
+}
