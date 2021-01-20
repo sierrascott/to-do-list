@@ -1,27 +1,43 @@
 //Requirements
 const express = require("express");
+const session = require('express-session')
 const favicon = require("serve-favicon");
 const path = require("path");
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const MongoStore = require('connect-mongo')(session);
+
 
 const app = express();
 
 //Middleware
 app.set('view engine', 'ejs');
 mongoose.set('useFindAndModify', false);
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'kadince-favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'images', 'kadince-favicon.ico')));
 
 //DB connection
 mongoose.connect('mongodb+srv://admin-sierra:TEST123@cluster0.ioad0.mongodb.net/kadinceToDoListDB', {
   useNewUrlParser: true, //deprecated
   useUnifiedTopology: true // for mongoose report dash view
 });
+
+mongoose.Promise = global.Promise;
+const db = mongoose.connection
+
+app.use(cookieParser());
+app.use(session({
+    secret: 'tennetenba',
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: db })
+}));
 
 //Shema constructor
 const itemsSchema = {
@@ -30,17 +46,8 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-//Create default items
-const item1 = new Item({
-  name: "Client Meeting @10:30a"
-});
-
-const item2 = new Item({
-  name: "Dev team Meeting @1:30p"
-});
-
-//Array for default items
-const defaultItems = [item1, item2];
+//Array for items
+const defaultItems = [];
 
 const listSchema = {
   name: String,
@@ -54,26 +61,11 @@ app.get("/", function(req, res) {
 
   Item.find({}, function(err, foundItems) {
 
-    //Insert default items if no items in array
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Default items successfully added!");
-        }
-      });
-
-      //Refresh
-      res.redirect("/");
-
-      //Display changes
-    } else {
+    //Insert saved items into array
       res.render("list", {
         listTitle: "Tasks",
         newListItems: foundItems
       });
-    }
   });
 
 });
@@ -162,11 +154,6 @@ app.post("/delete", function(req, res) {
 
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-
-app.listen(port, function() {
-  console.log("Server started");
+app.listen(process.env.PORT || 3000,() => {
+  console.log("Server started on PORT ${process.env.PORT || 3000}");
 });

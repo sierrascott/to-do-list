@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Kadince To-Do List</title>
 
   <!-- Favicon -->
@@ -48,9 +50,11 @@
       <h2> <%= listTitle %> </h2>
     </div>
     <!-- End of top -->
+
     <div class="box">
       <!-- Item function -->
       <%  newListItems.forEach(function(item){ %>
+
       <!-- Form for pending items -->
       <form action="/delete" method="post">
         <!-- Items -->
@@ -62,6 +66,7 @@
       </form>
       <%  }) %>
       <!-- End pending items -->
+
       <!-- Form to add items -->
       <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="Add new task..." autocomplete="off">

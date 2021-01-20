@@ -7,7 +7,7 @@ html {
 
 h1, h2 {
   color: #585657;
-  font-family: 'lato',sans-serif;
+  font-family: 'lato', sans-serif;
   padding: 5%;
   margin: 0px;
 }
@@ -15,7 +15,6 @@ h1, h2 {
 h2 {
   color: #fff;
   background-color: #CBE068;
-
 }
 
 .fixed-top {
@@ -44,7 +43,6 @@ h2 {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-
 }
 
 .nav-up {
@@ -53,7 +51,7 @@ h2 {
 
 .nav-link {
   color: #9EB441;
-  font-family: "Montserrat",sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .nav-link:hover {
@@ -76,15 +74,14 @@ h2 {
   color: #c68e99;
   text-align: center;
   font-family: 'lato', sans-serif;
-  padding-bottom: 15%;
-
+  padding: 15%;
 }
 
 .box {
   max-width: 400px;
   margin: auto;
   background: white;
-  border-radius: 5px;
+  border-radius: 1%;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
@@ -111,6 +108,7 @@ input:checked+p {
 
 input[type="checkbox"] {
   -webkit-appearance: none;
+  margin: 6%;
   width: 40px;
   height: 40px;
   background: white;
@@ -120,7 +118,6 @@ input[type="checkbox"] {
 
 p {
   margin: 0;
-  padding: 10%;
   font-size: 1.5rem;
   font-weight: 200;
   color: #00204a;
@@ -173,24 +170,36 @@ footer {
   text-align: center;
 }
 
-/*Media query*/
-@media (min-width: 1125px) {
-  input[type="checkbox"] {
-      margin: 6%;
-}
-
+/*Mobile media query*/
 @media (max-width: 1125px) {
 
   /* Title & Title Images */
   #heading {
-    text-align: center;
     width: 100%;
-}
-.box {
-    max-width: 70%;
-    border-radius: 1%;
-}
+  }
 
-input[type="checkbox"] {
+  .tag {
+    padding: 7% 0 15%;
+  }
+
+  .box {
+    max-width: 90%;
+    border-radius: 1%;
+  }
+
+  input[type="checkbox"] {
     margin: 8%;
+  }
+
+  input[type="text"] {
+    margin: 10%;
+  }
+
+  .p, input[type="text"] {
+    text-align: left;
+  }
+
+  form.item {
+    margin-left: 0px;
+  }
 }
