@@ -1,7 +1,7 @@
 html {
   background-color: transparent;
   background-image: -webkit-linear-gradient(65deg, #9EB441 50%, #c68e99 50%);
-  min-height: 1000px;
+  min-height: 100%;
   font-family: 'helvetica neue';
 }
 
@@ -110,13 +110,18 @@ input:checked+p {
 }
 
 input[type="checkbox"] {
-  margin: 20px;
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 10%;
+  border: 2px solid grey;
 }
 
 p {
   margin: 0;
-  padding: 20px;
-  font-size: 20px;
+  padding: 10%;
+  font-size: 1.5rem;
   font-weight: 200;
   color: #00204a;
 }
@@ -148,9 +153,9 @@ input[type="text"] {
   top: 10px;
   border: none;
   background: transparent;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 200;
-  width: 313px;
+  width: 100%;
 }
 
 input[type="text"]:focus {
@@ -166,4 +171,26 @@ input[type="text"]:focus {
 footer {
   color: white;
   text-align: center;
+}
+
+/*Media query*/
+@media (min-width: 1125px) {
+  input[type="checkbox"] {
+      margin: 6%;
+}
+
+@media (max-width: 1125px) {
+
+  /* Title & Title Images */
+  #heading {
+    text-align: center;
+    width: 100%;
+}
+.box {
+    max-width: 70%;
+    border-radius: 1%;
+}
+
+input[type="checkbox"] {
+    margin: 8%;
 }
